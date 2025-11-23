@@ -42,7 +42,7 @@ public class AuthController {
 	@PostMapping("/signup")
 	public ResponseEntity<UserEntity> signup(@RequestBody SignupDTO dto) throws Exception {
 		var user = convertDTO2Entity(dto);
-		user.setType(UserType.Common);
+		user.setType(UserType.Admin);
 		service.save(user);
 		return ResponseEntity.status(HttpStatus.CREATED).body(user);
 	}
